@@ -24,7 +24,13 @@ app = FastAPI(title="FileClassify API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000", "https://fileclassify.vercel.app/login" , "https://fileclassify.vercel.app/admin"],
+    #allow_origins=["http://localhost:3000", "http://127.0.0.1:3000", "https://fileclassify.vercel.app/login" , "https://fileclassify.vercel.app/admin"],
+    allow_origins=[
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+        "https://fileclassify.vercel.app",       # your actual Vercel URL
+        "https://fileclassify-*.vercel.app",      # preview deploys
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
